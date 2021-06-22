@@ -21,7 +21,7 @@ cap.set(4, hCam)
 # print(len(overlayList))
 pTime = 0
 
-detector = htm.handDetector(detectionCon=0.7)
+detector = htm.handDetector(detectionCon=0.8)
 
 
 tipIds = [4, 8, 12, 16, 20]
@@ -59,9 +59,9 @@ while True:
         cv2.putText(img, str(totalFingers), (45, 375), cv2.FONT_HERSHEY_PLAIN,
                     10, (255, 0, 0), 25)
 
-    cTime = time.time()
-    fps = 1 / (cTime - pTime)
-    pTime = cTime
+    # cTime = time.time()
+    # fps = 1 / (cTime - pTime)
+    # pTime = cTime
 
     # cv2.putText(img, f'FPS: {int(fps)}', (400, 70), cv2.FONT_HERSHEY_PLAIN,
     #             3, (255, 0, 0), 3)

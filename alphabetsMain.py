@@ -27,6 +27,10 @@ detector = htm.handDetector(detectionCon=0.7)
 tipIds = [4, 8, 12, 16, 20]
 x=1
 y=2
+index=8
+middle=12
+ring=16
+pinky=20
 
 
 while True:
