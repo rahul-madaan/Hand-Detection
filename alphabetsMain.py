@@ -25,6 +25,9 @@ detector = htm.handDetector(detectionCon=0.7)
 
 
 tipIds = [4, 8, 12, 16, 20]
+x=1
+y=2
+
 
 while True:
     success, img = cap.read()
@@ -40,6 +43,8 @@ while True:
             fingers.append(1)
         else:
             fingers.append(0)
+
+        #if lmList[8][y]
 
         # 4 Fingers
         for id in range(1, 5):
