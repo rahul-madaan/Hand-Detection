@@ -38,26 +38,31 @@ while True:
     img = detector.findHands(img)
     lmList = detector.findPosition(img, draw=False)
     # print(lmList)
+    alphabet =""
 
     if len(lmList) != 0:
         fingers = []
 
         # Thumb
-        if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
-            fingers.append(1)
-        else:
-            fingers.append(0)
+        # if lmList[tipIds[0]][1] > lmList[tipIds[0] - 1][1]:
+        #     fingers.append(1)
+        # else:
+        #     fingers.append(0)
 
-        #if lmList[8][y]
+        if lmList[index][y] > lmList[index-1][y] and lmList[middle][y] > lmList[middle-1][y] and lmList[ring][y] > lmList[ring-1][y] and lmList[pinky][y] > lmList[pinky-1][y]:
+            alphabet="c"
+        else:
+            alphabet="0"
 
         # 4 Fingers
-        for id in range(1, 5):
-            if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
-                fingers.append(1)
-            else:
-                fingers.append(0)
+        # for id in range(1, 5):
+        #     if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
+        #         fingers.append(1)
+        #     else:
+        #         fingers.append(0)
 
         # print(fingers)
+
         totalFingers = fingers.count(1)
         print(totalFingers)
 
@@ -65,7 +70,7 @@ while True:
         # img[0:h, 0:w] = overlayList[totalFingers - 1]
 
         cv2.rectangle(img, (20, 225), (170, 425), (0, 255, 0), cv2.FILLED)
-        cv2.putText(img, str(totalFingers), (45, 375), cv2.FONT_HERSHEY_PLAIN,
+        cv2.putText(img, str(alphabet), (45, 375), cv2.FONT_HERSHEY_PLAIN,
                     10, (255, 0, 0), 25)
 
     cTime = time.time()
